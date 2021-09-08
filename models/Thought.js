@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
 const dayjs = require('dayjs');
-// update validators on userjs
 
 const ReactionSchema = new Schema(
     {
@@ -34,7 +33,7 @@ const ThoughtSchema = new Schema(
     {
         thoughtText: {
             type: String,
-            required: true,
+            required: "Thought must be at least 1 character long!",
             minlength: 1,
             maxLength: 280
         },
@@ -45,7 +44,7 @@ const ThoughtSchema = new Schema(
         },
         username: {
             type: String,
-            required: true
+            required: "Username required!"
         },
         reactions: [ReactionSchema]
     },
